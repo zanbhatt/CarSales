@@ -1,0 +1,28 @@
+﻿@using CarSales.Models
+@model VehicleType
+@{
+    ViewBag.Title = "Home Page";
+}
+
+@using (Html.BeginForm("Create","Home"))
+{
+<div class="jumbotron">
+    <h1>Welcome to CarSales</h1>
+
+    <p class="lead">
+        <div>
+            @Html.Label("Please select vehicle type")
+
+            @Html.DropDownListFor(model => model.Id, ViewData["VehicleTypes"] as IEnumerable<SelectListItem>, new { @id = "ddlVehicleType" })
+        </div>
+    </p>
+
+    <p style="color:red">
+        @ViewBag.Message
+    </p>
+
+    <input type="submit" value="Create" class="btn btn-default" />
+
+</div>
+
+}
